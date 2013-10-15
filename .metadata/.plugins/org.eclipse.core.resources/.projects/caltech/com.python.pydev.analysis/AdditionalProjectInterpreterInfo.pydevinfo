@@ -1,0 +1,49 @@
+-- VERSION_3
+-- START DISKCACHE
+/home/vlg/Documents/programming/ml/.metadata/.plugins/org.eclipse.core.resources/.projects/caltech/com.python.pydev.analysis/v1_indexcache
+.v1_indexcache
+helloworld|0|/home/vlg/Documents/programming/ml/caltech/src/helloworld.py
+LinearModel|0|/home/vlg/Documents/programming/ml/caltech/src/LinearModel.py
+-- END DISKCACHE
+-- START DICTIONARY
+7
+6=Stat
+4=Line.__init__
+2=LinearRegression
+1=LinearModel
+7=Generator
+5=LinearRegression.__init__
+3=Line
+-- END DICTIONARY
+-- START TREE 1
+15
+!<m|0|
+L|0|
+act|0|
+dat|0|
+exp|1|experiment!10@
+g|0|
+gen|1|Generator!9@
+i_r|0|
+l|0|
+lea|0|
+lin|2|LinearRegression!9@Line!9@
+poi|0|
+res|0|
+s|0|
+sta|1|Stat!9@
+-- END TREE
+-- START TREE 2
+11
+!<m|0|
+_|0|
+__i|2|__init__!2&10@__init__!3&10@
+a|1|a!4&11@
+b|1|b!4&11@
+bui|3|buildY!2&10@buildLine!2&10@buildX!2&10@
+c|1|c!4&11@
+cla|1|classify!3&10@
+dat|1|data!5&11@
+err|1|error!6&10@
+gen|3|generateLine!7&10@generateData!7&10@generatePoints!7&10@
+-- END TREE

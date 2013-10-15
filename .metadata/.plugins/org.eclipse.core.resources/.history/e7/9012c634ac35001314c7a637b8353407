@@ -1,0 +1,25 @@
+'''
+Created on Oct 15, 2013
+
+@author: vlg
+'''
+
+import random
+
+class Generator :
+    
+    def generatePoints(self, N, i_range, ext_repr = True):
+        res = []
+        x_range,y_range = i_range[0],i_range[1]
+        for i in range(N) :
+            x = random.uniform(x_range[0],x_range[1])
+            y = random.uniform(y_range[0],y_range[1])
+            if ext_repr :
+                res.append((1,x,y))
+            else :
+                res.append((x,y))
+        return res
+    
+    def generateLine(self,i_range):
+        p1,p2 = self.generatePoints(2, i_range)
+        

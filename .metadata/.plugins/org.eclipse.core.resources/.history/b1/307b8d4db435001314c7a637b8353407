@@ -1,0 +1,110 @@
+'''
+Created on Oct 15, 2013
+
+@author: vlg
+'''
+
+import random
+from numpy import matrix
+
+class Line :
+    
+    def __init__(self,a,b,c):
+        self.a,self.b,self.c = a,b,c
+        
+    def classify(self,point):
+        x,y,z = point
+        res = x*self.a+y*self.b+z*self.c
+        if res > 0 : return 1
+        else : return -1
+
+class Generator :
+    
+    def generatePoints(self, N, i_range, ext_repr = True):
+        res = []
+        x_range,y_range = i_range[0],i_range[1]
+        for i in range(N) :
+            x = random.uniform(x_range[0],x_range[1])
+            y = random.uniform(y_range[0],y_range[1])
+            if ext_repr :
+                res.append((x,y,1))
+            else :
+                res.append((x,y))
+        return res
+    
+    def generateLine(self,i_range):
+        p1,p2 = self.generatePoints(2, i_range)
+        a = p1[1]-p2[1]
+        b = p2[0]-p1[0]
+        c = p1[0]*p2[1] - p2[0]*p1[1]
+        line = Line(a,b,c)
+        return line
+    
+    def generateData(self, points, line):
+        res = []
+        for p in points :
+            res.append((p,line.classify(p)))
+        return res
+    
+class LinearRegression :
+    def __init__(self,data):
+        self.data = data
+    
+    def buildX(self):
+        res = []
+        for x in self.data :
+            p = x[0]
+            res.append([p[0],p[1],p[2]])
+        return matrix(res)
+    
+    def buildY(self):
+        res = []
+        for x in self.data :
+            y = x[1]
+            res.append(y)
+        return  matrix(res).T
+        
+    def buildLine(self):
+        X = self.buildX()
+        y = self.buildY()
+        A = X.T * X
+        B = A.I * X.T
+        w =  B * y
+        return Line(w.item((0,0)),w.item((1,0)),w.item((2,0)))
+
+class Stat :
+    
+    def error(self,points,line1,line2):
+        a = len(points)
+        b = 0.0 
+        for p in points :
+            if line1.classify(p) != line2.classify(p) :
+                b += 1
+        return b/a
+
+def experiment():
+    in_error = []
+    out_error = []
+    for i in range(1000):
+        g = Generator()
+        i_range = ((-1,1),(-1,1))
+        points = g.generatePoints(100, i_range)
+        actual_line = g.generateLine(i_range)
+        data = g.generateData(points, actual_line)
+        l = LinearRegression(data)
+        learned_line = l.buildLine()
+        s = Stat()
+        e_in = s.error(points,actual_line,learned_line)
+        new_points = g.generatePoints(100, i_range)
+        e_out = s.error(new_points,actual_line,learned_line)
+        in_error.append(e_in)
+        out_error.append(e_out)
+    print "IN ERROR " + str(sum(in_error)/len(in_error))
+    print "OUT ERROR" + str(sum(out_error)/len(out_error))
+    
+experiment()
+    
+        
+        
+        
+        

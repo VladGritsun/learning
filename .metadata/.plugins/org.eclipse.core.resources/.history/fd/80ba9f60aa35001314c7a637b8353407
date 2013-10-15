@@ -1,0 +1,17 @@
+'''
+Created on Oct 15, 2013
+
+@author: vlg
+'''
+
+class PointGenerator :
+    
+    def generate(self, N, i_range, ext_repr = True):
+        res = []
+        for i in range(N) :
+            if ext_repr :
+                res.append((1,,))
+            else :
+                res.append((,))
+    
+    

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;caltech/src/PointGenerator.py&apos; to &apos;Generator.py&apos;" description="Rename resource &apos;PointGenerator.py&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/PointGenerator.py" name="Generator.py" stamp="1381848843203" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;caltech/src/Generator.py&apos; to &apos;LinearModel.py&apos;" description="Rename resource &apos;Generator.py&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/Generator.py" name="LinearModel.py" stamp="1381852614622" updateReferences="true"/>
+</session>
