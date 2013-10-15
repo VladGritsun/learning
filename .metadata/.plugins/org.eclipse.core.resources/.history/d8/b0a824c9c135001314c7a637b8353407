@@ -50,14 +50,14 @@ class LinearRegression :
     def __init__(self,data):
         self.data = data
     
-    def __buildX(self):
+    def buildX(self):
         res = []
         for x in self.data :
             p = x[0]
             res.append([p[0],p[1],p[2]])
         return matrix(res)
     
-    def __buildY(self):
+    def buildY(self):
         res = []
         for x in self.data :
             y = x[1]
@@ -65,8 +65,8 @@ class LinearRegression :
         return  matrix(res).T
         
     def buildLine(self):
-        X = self.__buildX()
-        y = self.__buildY()
+        X = self.buildX()
+        y = self.buildY()
         A = X.T * X
         B = A.I * X.T
         w =  B * y
